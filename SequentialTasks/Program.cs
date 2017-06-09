@@ -17,6 +17,8 @@ namespace SequentialTasks
         {
             var tasks = new TaskManager.TaskManager();
 
+            Console.WriteLine("Hit the return key to create a new task.");
+
             while (Console.ReadLine()?.ToLower() != "exit")
             {
                 tasks.AddTask(new BackgroundTask
