@@ -30,6 +30,8 @@ namespace SequentialTasks.TaskManager
         {
             if (_backLog.Count == 0)
             {
+                // Once there are no BackgroundTasks in _backLog we will make
+                // task ready for more actions to be added to the list.
                 _task = new Task(TaskRunner);
                 return;
             }
@@ -38,6 +40,9 @@ namespace SequentialTasks.TaskManager
 
             Console.WriteLine($"Starting task #{currentTask.TaskId}!");
 
+            // Researched locking in C# and async, found a few solutions (like AsyncSemaphore)
+            // but went with a "chaining/recursive" solution using ContinueWith instead (feels simpler).
+            // Used Google, Stackoverflow and MSDN.
             await currentTask.Task()
                 .ContinueWith(p =>
                 {

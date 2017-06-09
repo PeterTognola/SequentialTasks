@@ -7,6 +7,6 @@ namespace SequentialTasks.TaskManager
     {
         public int TaskId { get; set; }
 
-        public Func<Task> Task { get; set; }
+        public Func<Task> Task { get; set; } // Might not have to be async
     }
 }

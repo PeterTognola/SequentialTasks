@@ -21,7 +21,7 @@ namespace SequentialTasks
             {
                 tasks.AddTask(new BackgroundTask
                 {
-                    Task = () => Task.Delay(new Random().Next(1, 5) * 1000)
+                    Task = () => Task.Delay(new Random().Next(1, 5) * 1000) // Add task to backlog.
                 });
             }
         }
